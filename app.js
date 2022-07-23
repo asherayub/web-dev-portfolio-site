@@ -18,11 +18,20 @@ let toggleBtn = document.querySelector(".toggler");
 let navBar = document.querySelector(".navbar");
 let navBarItems = document.querySelector(".nav-items");
 let toggleIcon = document.querySelector(".fa-bars");
-toggleBtn.addEventListener("click", () => {
-    navBar.classList.toggle("show-navbar");
-    if (navBar.classList.contains("show-navbar")) {
-        toggleIcon.classList.replace("fa-bars", "fa-xmark");
-    } else {
-        toggleIcon.classList.replace("fa-xmark", "fa-bars");
-    }
+toggleBtn.addEventListener("click", ()=>{
+   navBarItems.addEventListener("click", ()=>{
+      navBar.classList.remove("show-navbar");
+      changeIcon()
+   })
+   navBar.classList.toggle("show-navbar");
+   changeIcon()
 })
+
+function changeIcon(){
+   if(navBar.classList.contains("show-navbar")){
+      toggleIcon.classList.replace("fa-bars", "fa-xmark");
+     }
+     else{
+      toggleIcon.classList.replace("fa-xmark", "fa-bars");
+     }
+}
